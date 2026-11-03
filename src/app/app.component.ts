@@ -759,11 +759,10 @@ export class App implements AfterViewInit, OnDestroy {
     "Busco oportunidades de estágio ou nível júnior em desenvolvimento Front-End, unindo código, criatividade e atenção à experiência do usuário. Também tenho interesse em Full-Stack e Testes de QA, porque gosto de entender como as aplicações funcionam de ponta a ponta e como torná-las mais confiáveis. Vamos criar algo juntos?": "I’m looking for internship or junior opportunities in Front-End development, combining code, creativity, and attention to user experience. I’m also interested in Full-Stack development and QA testing because I like understanding how applications work from end to end and how to make them more reliable. Let’s build something together!",
     "Enviar e-mail": "Send an email",
     "Entre em contato": "Get in touch",
-    "Escolha como prefere escrever sua mensagem.": "Choose how you’d like to send your message.",
+    "Envie uma mensagem pelo Gmail ou copie meu endereço de e-mail.": "Send me a message through Gmail or copy my email address.",
     "Copiar": "Copy",
     "Copiado!": "Copied!",
     "Escrever pelo Gmail": "Write via Gmail",
-    "Usar aplicativo de e-mail": "Use your email app",
     "Front-End": "Front-End",
     "Bibliotecas": "Libraries",
     "Dados e IA": "Data & AI",
@@ -835,8 +834,10 @@ export class App implements AfterViewInit, OnDestroy {
     this.applyLanguage();
     const cv = document.getElementById('cv-download');
     if (cv instanceof HTMLAnchorElement) {
-      const filename = 'CV_Giovanna_Carolina.pdf';
-      cv.href = `/${filename}`;
+      const filename = language === 'en'
+        ? 'CV_Giovanna_Carolina_EN.pdf'
+        : 'CV_Giovanna_Carolina.pdf';
+      cv.href = new URL(filename, document.baseURI).href;
       cv.download = filename;
     }
     const emailLinks = document.querySelectorAll<HTMLAnchorElement>('.email-options a');
