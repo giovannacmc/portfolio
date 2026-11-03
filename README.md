@@ -1,59 +1,134 @@
-# Portfolio
+# Portfólio | Giovanna Carolina
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.5.
+Portfólio pessoal desenvolvido com **Angular e TypeScript**, com foco em desenvolvimento Front-End, design de interfaces e experiência do usuário.
 
-## Development server
+O projeto apresenta minha trajetória profissional, conhecimentos técnicos, experiências, projetos desenvolvidos e formação complementar por meio de uma interface moderna, interativa e responsiva.
 
-To start a local development server, run:
+**[Acessar portfólio](https://giovannacmc.github.io/portfolio/)**
 
-```bash
-ng serve
+## Sobre o projeto
+
+Este portfólio foi desenvolvido para reunir meus trabalhos e apresentar minha evolução na área de tecnologia, combinando desenvolvimento de software, princípios de UI/UX Design e atenção à qualidade das interfaces.
+
+A aplicação valoriza a organização visual, a acessibilidade, a navegação intuitiva e a adaptação a diferentes dispositivos.
+
+## Funcionalidades
+
+- Interface responsiva para desktop, tablet e dispositivos móveis.
+- Alternância entre temas claro e escuro.
+- Seleção de idioma entre português e inglês.
+- Download de currículo conforme o idioma selecionado.
+- Navegação entre seções com indicação da seção ativa.
+- Apresentação interativa das tecnologias utilizadas.
+- Galeria de projetos com descrições e links.
+- Seção de experiências profissionais.
+- Apresentação de cursos e certificações.
+- Modal de contato com integração ao Gmail e cópia do endereço de e-mail.
+- Animações e elementos visuais interativos.
+- Armazenamento local das preferências de idioma e tema.
+
+## Tecnologias utilizadas
+
+| Categoria | Tecnologias |
+|---|---|
+| Framework | Angular |
+| Linguagens | TypeScript, JavaScript, HTML5 e CSS3 |
+| Estilização | CSS Grid, Flexbox, Media Queries e CSS Variables |
+| Interface | Design responsivo e princípios de UI/UX |
+| Versionamento | Git e GitHub |
+| Publicação | GitHub Pages |
+
+## Estrutura do projeto
+
+```text
+portfolio/
+├── .github/
+│   └── workflows/
+├── public/
+├── src/
+│   ├── app/
+│   │   ├── background-balls/
+│   │   ├── app.component.html
+│   │   └── app.component.ts
+│   ├── styles.css
+│   └── index.html
+├── angular.json
+├── package.json
+└── README.md
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Executando localmente
 
-## Code scaffolding
+### Pré-requisitos
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- Node.js
+- npm
+- Angular CLI
 
-```bash
-ng generate component component-name
-```
+### Instalação
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Clone o repositório:
 
 ```bash
-ng build
+git clone https://github.com/giovannacmc/portfolio.git
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+Acesse a pasta do projeto:
 
 ```bash
-ng test
+cd portfolio
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Instale as dependências:
 
 ```bash
-ng e2e
+npm install
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Inicie o servidor de desenvolvimento:
 
-## Additional Resources
+```bash
+npm start
+```
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Acesse:
+
+```text
+http://localhost:4200/
+```
+
+## Build de produção
+
+Para gerar a versão otimizada da aplicação:
+
+```bash
+npx ng build --configuration production
+```
+
+Os arquivos compilados serão disponibilizados no diretório de saída configurado no Angular.
+
+## Publicação
+
+O projeto utiliza o GitHub Pages para disponibilização pública.
+
+**Site:** https://giovannacmc.github.io/portfolio/
+
+**Repositório:** https://github.com/giovannacmc/portfolio
+
+## Objetivo
+
+Este projeto representa minha evolução profissional e acadêmica na área de tecnologia, com ênfase em desenvolvimento Front-End, qualidade de software e criação de experiências digitais funcionais e visualmente consistentes.
+
+O portfólio será atualizado conforme novos projetos, tecnologias e experiências forem incorporados à minha trajetória.
+
+## Contato
+
+**Giovanna Carolina**
+
+- **E-mail:** giovannacarolina052@gmail.com
+- **GitHub:** [github.com/giovannacmc](https://github.com/giovannacmc)
+- **Portfólio:** [giovannacmc.github.io/portfolio](https://giovannacmc.github.io/portfolio/)
+
+---
+
+Desenvolvido por Giovanna Carolina.
