@@ -1,6 +1,5 @@
 
-import '@fontsource-variable/figtree';
-import '@fontsource-variable/bricolage-grotesque';
+
 import {
   Component,
   AfterViewInit,
