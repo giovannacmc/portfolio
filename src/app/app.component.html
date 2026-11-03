@@ -1,0 +1,874 @@
+
+<app-background-balls startBelow=".strip"></app-background-balls>
+
+<div id="prog"></div>
+
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+
+<svg width="0" height="0" style="position: absolute" aria-hidden="true">
+  <symbol id="cat" viewBox="0 0 120 120">
+    <g
+      fill="none"
+      stroke="currentColor"
+      stroke-width="3.4"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <path d="M40 82 C32 92 30 102 30 114 M79 82 C90 92 89 105 89 114" />
+      <path d="M89 111 C106 105 108 80 98 75 C89 71 86 87 93 91" />
+      <path
+        d="M31 53 L31 25 L46 37 Q60 31 75 37 L90 25 L90 53 C94 70 85 82 70 84 L49 84 C33 82 25 69 31 53Z"
+        fill="var(--cat-fill)"
+      />
+      <path d="M46 58 Q51 54 56 58 M67 58 Q72 54 77 58" />
+      <path
+        d="M58 67 Q61 70 64 67 M61 70 Q55 75 50 70 M61 70 Q67 75 72 70"
+        stroke-width="2.5"
+      />
+      <path
+        d="M30 62 L16 57 M29 68 L14 69 M90 62 L104 57 M91 68 L106 69"
+        stroke-width="2.4"
+      />
+      <path d="M43 112 Q60 108 77 112" />
+      <path
+        d="M17 22 L19 16 L22 22 L28 24 L22 27 L19 33 L16 27 L10 24Z"
+        stroke-width="2.4"
+      />
+      <path
+        d="M100 31 L102 27 L104 31 L109 33 L104 35 L102 40 L100 35 L95 33Z"
+        stroke-width="2"
+      />
+      <path
+        d="M101 49 C113 45 112 61 103 60 C98 59 99 54 103 54"
+        stroke-width="2"
+      />
+    </g>
+
+    <circle cx="33" cy="72" r="1.7" fill="currentColor" />
+    <circle cx="88" cy="72" r="1.7" fill="currentColor" />
+  </symbol>
+</svg>
+
+<header>
+  <div class="wrap">
+    <nav aria-label="Navegação principal">
+      <a class="logo" href="#topo">Portfólio</a>
+
+      <div class="nav-links" id="nav-links">
+        <a href="#sobre">Sobre</a>
+        <a href="#tecnologias">Tecnologias</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#certificacoes">Certificações</a>
+        <a href="#contato">Contato</a>
+      </div>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-controls="nav-links"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <button
+        id="theme"
+        type="button"
+        aria-label="Alternar modo claro e escuro"
+        aria-pressed="false"
+        title="Alternar tema"
+      >
+        ☾
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="topo">
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-content">
+        <span class="pill">
+          <span class="dot"></span>
+          Aberta a estágio ou vaga júnior
+        </span>
+
+        <h1>Oi, eu sou a Giovanna.</h1>
+
+        <div class="role">
+          Desenvolvedora Front-End em formação
+        </div>
+
+        <p>
+          Estudante de Análise e Desenvolvimento de Sistemas.
+          Meu desejo é seguir carreira em Front-End, e também
+          tenho interesse em Full-Stack para entender um projeto
+          de ponta a ponta.
+        </p>
+
+        <div class="row">
+          <a
+            class="btn"
+            href="/CV_Giovanna_Carolina.pdf"
+            download="CV_Giovanna_Carolina.pdf"
+          >
+            Baixar currículo
+          </a>
+
+          <a class="btn ghost" href="#projetos">
+            Ver projetos
+          </a>
+        </div>
+
+        <div class="social">
+          <a
+            href="https://github.com/giovannacmc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/giovannacarolinacamargo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="stage">
+        <span class="fl f1">HTML5</span>
+        <span class="fl f2">CSS3</span>
+        <span class="fl f3">JS</span>
+
+        <div class="code" aria-hidden="true">
+          <div class="bar">
+            <i></i>
+            <i></i>
+            <i></i>
+          </div>
+
+          <div>
+            <span class="k">const</span>
+            portfolio = &#123;
+          </div>
+
+          <div>
+            &nbsp;&nbsp;foco:
+            <span class="s">"Front-End"</span>,
+          </div>
+
+          <div>
+            &nbsp;&nbsp;interesse:
+            <span class="s">"Full-Stack"</span>,
+          </div>
+
+          <div>
+            &nbsp;&nbsp;stack: [
+            <span class="s">"HTML"</span>,
+            <span class="s">"CSS"</span>,
+            <span class="s">"JS"</span>],
+          </div>
+
+          <div>
+            &nbsp;&nbsp;local:
+            <span class="s">"Sorocaba, SP"</span>
+          </div>
+
+          <div>
+            &#125;;<span class="cur"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="strip" aria-label="Tecnologias">
+      <div class="track" id="track">
+        <span>HTML5</span>
+        <span>✦</span>
+        <span>CSS3</span>
+        <span>✦</span>
+        <span>JavaScript</span>
+        <span>✦</span>
+        <span>React</span>
+        <span>✦</span>
+        <span>Next.js</span>
+        <span>✦</span>
+        <span>TypeScript</span>
+        <span>✦</span>
+        <span>Tailwind CSS</span>
+        <span>✦</span>
+        <span>Bootstrap</span>
+        <span>✦</span>
+        <span>Git e GitHub</span>
+        <span>✦</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap">
+      <h2>Sobre mim</h2>
+
+      <p class="sub">
+        Minha trajetória reúne formação em tecnologia,
+        experiência com pessoas e interesse por design.
+        São conhecimentos que influenciam a maneira
+        como desenvolvo interfaces.
+      </p>
+
+      <div class="about-grid rv">
+        <div class="about-copy">
+          <p>
+            Gosto de ver uma interface ganhar forma na tela:
+            o layout, a responsividade e as pequenas animações
+            que deixam tudo mais agradável de usar.
+            Venho do atendimento e do suporte técnico,
+            e isso me ensinou a me comunicar com clareza
+            e a resolver problemas com calma.
+          </p>
+
+          <p>
+            Também sou apaixonada por arte em todas as formas,
+            e isso aparece na atenção que dou às cores,
+            aos espaços e aos detalhes de cada projeto.
+          </p>
+
+          <div class="about-art">
+            <svg
+              class="about-cat"
+              viewBox="0 0 120 120"
+              role="img"
+              aria-label="Gatinho desenhado em preto e branco"
+            >
+              <use href="#cat" />
+            </svg>
+          </div>
+        </div>
+
+        <div class="about-panel">
+          <div class="about-group">
+            <h3>Formação</h3>
+
+            <small>Centro Universitário Facens</small>
+            <b>Análise e Desenvolvimento de Sistemas</b>
+            <small>4º semestre, conclusão em julho de 2027</small>
+          </div>
+
+          <div class="about-group">
+            <h3>Idiomas</h3>
+
+            <div class="lang">
+              <span class="flag">
+                <svg viewBox="0 0 32 22" aria-hidden="true">
+                  <rect width="32" height="22" fill="#2DA44E"></rect>
+                  <path d="M16 2.5 29 11 16 19.5 3 11z" fill="#FFD84D"></path>
+                  <circle cx="16" cy="11" r="4.4" fill="#2F5BB7"></circle>
+                </svg>
+              </span>
+
+              <div>
+                <b>Português</b>
+                <small>Nativo</small>
+              </div>
+
+              <span class="pips" aria-label="Nível 5 de 5">
+                <i class="on"></i>
+                <i class="on"></i>
+                <i class="on"></i>
+                <i class="on"></i>
+                <i class="on"></i>
+              </span>
+            </div>
+
+            <div class="lang">
+              <span class="flag">
+                <svg viewBox="0 0 32 22" aria-hidden="true">
+                  <rect width="32" height="22" fill="#fff"></rect>
+
+                  <g fill="#D94A5C">
+                    <rect width="32" height="1.7"></rect>
+                    <rect y="3.4" width="32" height="1.7"></rect>
+                    <rect y="6.8" width="32" height="1.7"></rect>
+                    <rect y="10.2" width="32" height="1.7"></rect>
+                    <rect y="13.6" width="32" height="1.7"></rect>
+                    <rect y="17" width="32" height="1.7"></rect>
+                    <rect y="20.3" width="32" height="1.7"></rect>
+                  </g>
+
+                  <rect width="14" height="11.9" fill="#4B66C2"></rect>
+                </svg>
+              </span>
+
+              <div>
+                <b>Inglês</b>
+                <small>Intermediário</small>
+              </div>
+
+              <span class="pips" aria-label="Nível 3 de 5">
+                <i class="on"></i>
+                <i class="on"></i>
+                <i class="on"></i>
+                <i></i>
+                <i></i>
+              </span>
+            </div>
+          </div>
+
+          <div class="about-group">
+            <h3>Fora do código</h3>
+
+            <div class="hob">
+              <span>Desenho</span>
+              <span>Crochê</span>
+              <span>Jogos</span>
+              <span>Séries</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tecnologias">
+    <div class="wrap">
+      <h2>Tecnologias</h2>
+
+      <p class="sub">
+        Conhecimentos que utilizo em projetos pessoais,
+        atividades acadêmicas e experiências profissionais.
+        Explore as categorias para conhecer as ferramentas
+        com as quais já trabalhei e as que estou aprofundando.
+      </p>
+
+      <div class="tw rv">
+        <div
+          class="tabs"
+          id="tabs"
+          role="tablist"
+          aria-label="Categorias de tecnologias"
+        ></div>
+
+        <div
+          class="panel"
+          id="panel"
+          role="tabpanel"
+          aria-live="polite"
+        ></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experiencia">
+    <div class="wrap">
+      <h2>Experiência</h2>
+
+      <p class="sub">
+        Minha trajetória passa pelo atendimento ao cliente,
+        análise de ocorrências e estágio em tecnologia.
+        Essas experiências desenvolveram minha comunicação,
+        atenção aos detalhes e compreensão das necessidades dos usuários.
+      </p>
+
+      <div class="xgrid">
+        <div class="card xi rv">
+          <span class="ic" style="background: var(--pink)">
+            <img
+              src="/experiencia-suporte.png"
+              alt="Homem-Aranha usando fones de ouvido"
+              loading="lazy"
+            />
+          </span>
+
+          <h3>Atendimento e suporte técnico</h3>
+
+          <p>
+            Atendimento remoto, diagnóstico de problemas
+            e orientação técnica a clientes.
+          </p>
+
+          <span class="chip" style="background: var(--pink)">
+            Teleperformance
+          </span>
+        </div>
+
+        <div class="card xi rv">
+          <span class="ic" style="background: var(--mint)">
+            <img
+              src="/experiencia-fraudes.png"
+              alt="Snoopy detetive com lupa"
+              loading="lazy"
+            />
+          </span>
+
+          <h3>Análise de fraudes</h3>
+
+          <p>
+            Análise de ocorrências bancárias e identificação
+            de possíveis fraudes.
+          </p>
+
+          <span class="chip" style="background: var(--mint)">
+            SX Negócios
+          </span>
+        </div>
+
+        <div class="card xi rv">
+          <span class="ic" style="background: var(--peach)">
+            <img
+              src="/experiencia-estagio.png"
+              alt="Pikachu trabalhando no computador"
+              loading="lazy"
+            />
+          </span>
+
+          <h3>Estágio em tecnologia</h3>
+
+          <p>
+            Testes de QA e prototipação de interfaces no Figma,
+            em colaboração com a equipe de desenvolvimento.
+          </p>
+
+          <span class="chip" style="background: var(--peach)">
+            EpiOusion
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <h2>Projetos em destaque</h2>
+
+      <p class="sub">
+        Uma seleção de trabalhos em que apliquei desenvolvimento
+        web, responsividade e organização de interfaces.
+        Cada projeto apresenta diferentes desafios,
+        soluções e tecnologias utilizadas.
+      </p>
+
+      <div class="grid">
+        <article class="card proj rv">
+          <a
+            class="project-image-link"
+            href="https://github.com/giovannacmc/autostore-ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir repositório do AutoStore AI"
+          >
+            <div class="thumb real-shot">
+              <img
+                src="/autostore-ai.png"
+                alt="Interface do projeto AutoStore AI"
+                loading="lazy"
+              />
+            </div>
+          </a>
+
+          <div class="body">
+            <span class="when">Hackathon acadêmico, 2026</span>
+
+            <h3>AutoStore AI</h3>
+
+            <p>
+              Aplicação web desenvolvida para o Hackathon
+              AutoStore, simulando uma loja digital de veículos
+              com catálogo interativo, comparação lado a lado,
+              captura de leads, painel administrativo e
+              assistente de inteligência artificial integrado
+              ao Gemini com RAG.
+            </p>
+
+            <div class="chips">
+              <span class="chip">Next.js 16</span>
+              <span class="chip">React 19</span>
+              <span class="chip">TypeScript</span>
+              <span class="chip">Tailwind CSS</span>
+              <span class="chip">Prisma ORM</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Gemini API</span>
+            </div>
+
+            <div class="links">
+              <a
+                href="https://github.com/giovannacmc/autostore-ai"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver no GitHub <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card proj rv">
+          <a
+            class="project-image-link"
+            href="https://github.com/giovannacmc/atelie-da-lina"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Abrir repositório do Ateliê da Lina"
+          >
+            <div class="thumb real-shot">
+              <img
+                src="/atelie-da-lina.png"
+                alt="Interface do projeto Ateliê da Lina"
+                loading="lazy"
+              />
+            </div>
+          </a>
+
+          <div class="body">
+            <span class="when">Projeto pessoal, 2026</span>
+
+            <h3>Ateliê da Lina</h3>
+
+            <p>
+              Landing page responsiva criada para divulgação
+              de peças artesanais em croché. O projeto foi
+              desenvolvido com foco em apresentação visual,
+              hierarquia de conteúdo, navegação simples e
+              adaptação para diferentes tamanhos de tela.
+            </p>
+
+            <div class="chips">
+              <span class="chip">HTML5</span>
+              <span class="chip">CSS3</span>
+              <span class="chip">Flexbox</span>
+              <span class="chip">Grid</span>
+              <span class="chip">Media Queries</span>
+            </div>
+
+            <div class="links">
+              <a
+                href="https://github.com/giovannacmc/atelie-da-lina"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Ver no GitHub <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="more rv">
+        <p>
+          Conheça muito mais em meu GitHub: estudos,
+          experimentos e outros projetos.
+        </p>
+
+        <a
+          class="btn"
+          href="https://github.com/giovannacmc"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Ver meu GitHub
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificacoes">
+    <div class="wrap">
+      <h2>Certificações</h2>
+
+      <p class="sub">
+        Sigo investindo na minha formação com cursos
+        de desenvolvimento Front-End, Figma, Git, GitHub
+        e Node.js. As capacitações abaixo estão em andamento
+        e serão atualizadas conforme forem concluídas.
+      </p>
+
+      <div class="certs">
+        <div class="card rv">
+          <h3>
+            Formação Front-end: HTML, CSS,
+            JavaScript, React e mais
+          </h3>
+
+          <div class="load"><b></b></div>
+
+          <div class="status">
+            <span>Udemy</span>
+            <span class="dots">Em andamento</span>
+          </div>
+        </div>
+
+        <div class="card rv">
+          <h3>
+            Figma: design colaborativo do básico
+            ao protótipo responsivo
+          </h3>
+
+          <div class="load"><b></b></div>
+
+          <div class="status">
+            <span>Udemy</span>
+            <span class="dots">Em andamento</span>
+          </div>
+        </div>
+
+        <div class="card rv">
+          <h3>
+            Git e GitHub do básico ao avançado
+            com Gist e GitHub Pages
+          </h3>
+
+          <div class="load"><b></b></div>
+
+          <div class="status">
+            <span>Udemy</span>
+            <span class="dots">Em andamento</span>
+          </div>
+        </div>
+
+        <div class="card rv">
+          <h3>
+            Node.js do zero à maestria
+            com diversos projetos
+          </h3>
+
+          <div class="load"><b></b></div>
+
+          <div class="status">
+            <span>Udemy</span>
+            <span class="dots">Em andamento</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sleep rv">
+        <svg
+          class="sleep-cat"
+          viewBox="0 0 160 160"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <g
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M115 125 C140 135 151 111 146 89 C141 70 148 58 157 52 C164 46 157 35 148 39 C124 49 121 69 130 88 C137 103 128 112 119 109"
+              fill="#A6A6A6"
+              stroke-width="5"
+            />
+
+            <path
+              d="M54 82 C40 96 32 118 36 137 C39 148 58 148 72 147 L104 147 C126 145 130 128 125 109 C120 91 106 83 94 78 Z"
+              fill="#A6A6A6"
+              stroke-width="5"
+            />
+
+            <path
+              d="M48 117 C35 128 39 143 50 147 L65 148 C71 147 71 141 68 138"
+              fill="#A6A6A6"
+              stroke-width="5"
+            />
+
+            <path
+              d="M78 143 Q80 151 103 148 C110 145 109 138 105 135"
+              fill="#A6A6A6"
+              stroke-width="5"
+            />
+
+            <path
+              d="M32 53 L29 16 Q40 14 61 32 Q76 27 89 32 Q112 8 120 16 L120 60 C123 82 109 94 83 98 C56 102 35 91 32 72Z"
+              fill="#A6A6A6"
+              stroke-width="5"
+            />
+
+            <path
+              d="M53 67 Q62 70 70 66 M90 67 Q99 69 106 63"
+              fill="none"
+              stroke-width="4"
+            />
+
+            <path
+              d="M76 78 Q80 80 84 77 M80 80 Q85 85 90 81"
+              fill="none"
+              stroke-width="3"
+            />
+
+            <path
+              d="M34 74 L11 69 M35 81 L9 83 M118 74 L135 70"
+              fill="none"
+              stroke-width="3.5"
+            />
+
+            <path
+              class="grooming-tongue"
+              d="M77 83 Q70 87 72 94"
+              fill="none"
+              stroke="#555555"
+              stroke-width="3"
+            />
+
+            <path
+              d="M110 129 Q102 120 89 112 L80 105 Q73 102 68 106 C60 112 63 120 72 121 Q82 124 90 127 Q101 134 110 129Z"
+              fill="#A6A6A6"
+              stroke-width="5"
+            />
+
+            <g class="grooming-paw">
+              <path
+                d="M72 110 Q68 107 65 104 C59 98 59 89 65 85 C71 81 79 84 83 90 C88 97 84 102 78 106"
+                fill="#A6A6A6"
+                stroke-width="5"
+              />
+
+              <path
+                d="M67 90 Q72 92 78 90"
+                fill="none"
+                stroke-width="2.5"
+              />
+            </g>
+          </g>
+        </svg>
+
+        <span>
+          Aprendendo, praticando e evoluindo a cada projeto.
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <div class="contact-minimal rv">
+        <div class="contact-copy">
+          <h2>Vamos conversar?</h2>
+
+          <p>
+            Estou em busca de oportunidades de estágio
+            ou nível júnior em desenvolvimento Front-End/Fullstack.
+            Tenho interesse em contribuir com a construção
+            de interfaces bem planejadas e continuar evoluindo
+            ao lado de uma equipe de tecnologia.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <button
+            class="btn"
+            id="email-button"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="email-dialog"
+          >
+            Enviar e-mail
+          </button>
+
+          <a
+            class="btn ghost"
+            href="https://www.linkedin.com/in/giovannacarolinacamargo"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn
+          </a>
+
+          <a
+            class="btn ghost"
+            href="https://github.com/giovannacmc"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © 2026 Giovanna Carolina
+</footer>
+
+<div class="email-dialog" id="email-dialog" hidden>
+  <div
+    class="email-dialog-panel"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="email-dialog-title"
+    aria-describedby="email-dialog-description"
+    tabindex="-1"
+  >
+    <button
+      class="email-close"
+      id="email-close"
+      type="button"
+      aria-label="Fechar janela de contato"
+    >
+      ×
+    </button>
+
+    <div class="email-heading-icon">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+        <path d="m4 7 8 6 8-6"></path>
+      </svg>
+    </div>
+
+    <h2 id="email-dialog-title">Entre em contato</h2>
+
+    <p id="email-dialog-description">
+      Escolha como prefere escrever sua mensagem.
+    </p>
+
+    <div class="email-address">
+      <span>giovannacarolina052@gmail.com</span>
+      <button id="copy-email" type="button">Copiar</button>
+    </div>
+
+    <div class="email-options">
+      <a
+        class="btn email-option"
+        href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=giovannacarolina052%40gmail.com&amp;su=Contato%20pelo%20portf%C3%B3lio"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Escrever pelo Gmail
+        <span aria-hidden="true">↗</span>
+      </a>
+
+      <a
+        class="btn ghost email-option"
+        href="mailto:giovannacarolina052@gmail.com?subject=Contato%20pelo%20portf%C3%B3lio"
+      >
+        Usar aplicativo de e-mail
+        <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <p
+      class="email-feedback"
+      id="email-feedback"
+      role="status"
+      aria-live="polite"
+    ></p>
+  </div>
+</div>
