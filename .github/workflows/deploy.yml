@@ -1,0 +1,48 @@
+
+name: Publicar portfolio
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - run: npx ng build --configuration production --base-href /portfolio/
+
+      - name: Preparar site
+        run: |
+          INDEX=$(find dist -type f -name index.html -not -path '*/server/*' -print -quit)
+          test -n "$INDEX"
+          mkdir -p publish
+          cp -R "$(dirname "$INDEX")"/. publish/
+          cp publish/index.html publish/404.html
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: publish
+
+      - uses: actions/deploy-pages@v4
+        id: deployment
