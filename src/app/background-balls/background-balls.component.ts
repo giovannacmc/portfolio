@@ -33,7 +33,7 @@ interface Ball {
     :host {
       position: fixed;
       inset: 0;
-      z-index: -1;
+      z-index: 0;
       display: block;
       pointer-events: none;
     }
@@ -46,21 +46,18 @@ interface Ball {
     }
   `]
 })
-export class BackgroundBallsComponent
-  implements AfterViewInit, OnDestroy {
-
+export class BackgroundBallsComponent implements AfterViewInit, OnDestroy {
   @ViewChild('canvas', { static: true })
   canvasRef!: ElementRef<HTMLCanvasElement>;
 
   @Input() startBelow = '';
 
-  private zone = inject(NgZone);
-  private platformId = inject(PLATFORM_ID);
+  private readonly zone = inject(NgZone);
+  private readonly platformId = inject(PLATFORM_ID);
 
   private ctx!: CanvasRenderingContext2D;
   private balls: Ball[] = [];
   private stripEl: Element | null = null;
-
   private W = 0;
   private H = 0;
   private dpr = 1;
@@ -88,8 +85,7 @@ export class BackgroundBallsComponent
       return;
     }
 
-    const canvas = this.canvasRef.nativeElement;
-    const context = canvas.getContext('2d');
+    const context = this.canvasRef.nativeElement.getContext('2d');
 
     if (!context) {
       return;
@@ -150,10 +146,7 @@ export class BackgroundBallsComponent
     this.W = window.innerWidth;
     this.H = window.innerHeight;
 
-    this.dpr = Math.min(
-      window.devicePixelRatio || 1,
-      2
-    );
+    this.dpr = Math.min(window.devicePixelRatio || 1, 2);
 
     canvas.width = Math.round(this.W * this.dpr);
     canvas.height = Math.round(this.H * this.dpr);
@@ -167,12 +160,10 @@ export class BackgroundBallsComponent
       0
     );
 
-    if (this.balls.length === 0) {
+    if (!this.balls.length) {
       this.createBalls();
     } else {
-      this.balls.forEach(ball => {
-        this.keepInside(ball);
-      });
+      this.balls.forEach(ball => this.keepInside(ball));
     }
   }
 
@@ -181,10 +172,7 @@ export class BackgroundBallsComponent
 
     const total = Math.max(
       4,
-      Math.min(
-        6,
-        Math.round((this.W * this.H) / 260000)
-      )
+      Math.min(6, Math.round((this.W * this.H) / 260000))
     );
 
     const scale = Math.min(
@@ -195,30 +183,27 @@ export class BackgroundBallsComponent
     for (let i = 0; i < total; i++) {
       const large = i < 4;
 
-      const radius = (
+      const r = (
         large
           ? 165 + Math.random() * 95
           : 90 + Math.random() * 55
       ) * scale;
 
-      const marginX = Math.min(
-        this.W / 2,
-        radius * 0.6
-      );
-
-      const marginY = Math.min(
-        this.H / 2,
-        radius * 0.6
-      );
+      const marginX = Math.min(this.W / 2, r * 0.6);
+      const marginY = Math.min(this.H / 2, r * 0.6);
 
       this.balls.push({
-        x: marginX +
-          Math.random() * Math.max(0, this.W - marginX * 2),
-        y: marginY +
-          Math.random() * Math.max(0, this.H - marginY * 2),
-        r: radius,
+        x: marginX + Math.random() * Math.max(
+          0,
+          this.W - marginX * 2
+        ),
+        y: marginY + Math.random() * Math.max(
+          0,
+          this.H - marginY * 2
+        ),
+        r,
         angle: Math.random() * Math.PI * 2,
-        speed: 0.07 + Math.random() * 0.11,
+        speed: 0.10 + Math.random() * 0.14,
         phase: Math.random() * 100,
         color: i % this.palette.length,
         vx: 0,
@@ -228,42 +213,29 @@ export class BackgroundBallsComponent
   }
 
   private keepInside(ball: Ball): void {
-    const marginX = Math.min(
-      this.W / 2,
-      ball.r * 0.6
-    );
+    const marginX = Math.min(this.W / 2, ball.r * 0.6);
+    const marginY = Math.min(this.H / 2, ball.r * 0.6);
 
-    const marginY = Math.min(
-      this.H / 2,
-      ball.r * 0.6
-    );
-
-    const minX = marginX;
-    const maxX = this.W - marginX;
-
-    const minY = marginY;
-    const maxY = this.H - marginY;
-
-    if (ball.x < minX) {
-      ball.x = minX;
+    if (ball.x < marginX) {
+      ball.x = marginX;
       ball.vx = Math.abs(ball.vx) * 0.7;
       ball.angle = Math.PI - ball.angle;
     }
 
-    if (ball.x > maxX) {
-      ball.x = maxX;
+    if (ball.x > this.W - marginX) {
+      ball.x = this.W - marginX;
       ball.vx = -Math.abs(ball.vx) * 0.7;
       ball.angle = Math.PI - ball.angle;
     }
 
-    if (ball.y < minY) {
-      ball.y = minY;
+    if (ball.y < marginY) {
+      ball.y = marginY;
       ball.vy = Math.abs(ball.vy) * 0.7;
       ball.angle = -ball.angle;
     }
 
-    if (ball.y > maxY) {
-      ball.y = maxY;
+    if (ball.y > this.H - marginY) {
+      ball.y = this.H - marginY;
       ball.vy = -Math.abs(ball.vy) * 0.7;
       ball.angle = -ball.angle;
     }
@@ -274,33 +246,20 @@ export class BackgroundBallsComponent
       return;
     }
 
-    ball.phase += 0.0035 * dt;
+    ball.phase += 0.0045 * dt;
+    ball.angle += Math.sin(ball.phase) * 0.004 * dt;
 
-    ball.angle +=
-      Math.sin(ball.phase) * 0.003 * dt;
-
-    ball.vx +=
-      Math.cos(ball.angle) * ball.speed * 0.03 * dt;
-
-    ball.vy +=
-      Math.sin(ball.angle) * ball.speed * 0.03 * dt;
+    ball.vx += Math.cos(ball.angle) * ball.speed * 0.038 * dt;
+    ball.vy += Math.sin(ball.angle) * ball.speed * 0.038 * dt;
 
     const dx = ball.x - this.mouse.x;
     const dy = ball.y - this.mouse.y;
-
     const distance = Math.hypot(dx, dy);
-
     const influenceRadius = ball.r + 160;
 
-    if (
-      distance > 1 &&
-      distance < influenceRadius
-    ) {
-      const proximity =
-        1 - distance / influenceRadius;
-
-      const force =
-        proximity * proximity * 0.25 * dt;
+    if (distance > 1 && distance < influenceRadius) {
+      const proximity = 1 - distance / influenceRadius;
+      const force = proximity * proximity * 0.25 * dt;
 
       ball.vx += (dx / distance) * force;
       ball.vy += (dy / distance) * force;
@@ -311,18 +270,12 @@ export class BackgroundBallsComponent
     ball.vx *= damping;
     ball.vy *= damping;
 
-    const maxSpeed = 1.5;
-
-    const currentSpeed = Math.hypot(
-      ball.vx,
-      ball.vy
-    );
+    const maxSpeed = 1.65;
+    const currentSpeed = Math.hypot(ball.vx, ball.vy);
 
     if (currentSpeed > maxSpeed) {
-      const ratio = maxSpeed / currentSpeed;
-
-      ball.vx *= ratio;
-      ball.vy *= ratio;
+      ball.vx *= maxSpeed / currentSpeed;
+      ball.vy *= maxSpeed / currentSpeed;
     }
 
     ball.x += ball.vx * dt;
@@ -332,10 +285,9 @@ export class BackgroundBallsComponent
   }
 
   private isDark(): boolean {
-    const theme =
-      document.documentElement.getAttribute('data-theme');
-
-    return theme === 'dark';
+    return document.documentElement.getAttribute(
+      'data-theme'
+    ) === 'dark';
   }
 
   private getRevealPosition(): number {
@@ -344,9 +296,7 @@ export class BackgroundBallsComponent
     }
 
     if (!this.stripEl || !this.stripEl.isConnected) {
-      this.stripEl = document.querySelector(
-        this.startBelow
-      );
+      this.stripEl = document.querySelector(this.startBelow);
     }
 
     if (!this.stripEl) {
@@ -356,10 +306,7 @@ export class BackgroundBallsComponent
     return this.stripEl.getBoundingClientRect().bottom;
   }
 
-  private hexToRgba(
-    hex: string,
-    alpha: number
-  ): string {
+  private hexToRgba(hex: string, alpha: number): string {
     const value = hex.replace('#', '');
 
     const full = value.length === 3
@@ -381,7 +328,6 @@ export class BackgroundBallsComponent
     const ctx = this.ctx;
     const W = this.W;
     const H = this.H;
-
     const dark = this.isDark();
     const revealPosition = this.getRevealPosition();
 
@@ -408,17 +354,17 @@ export class BackgroundBallsComponent
       if (dark) {
         gradient.addColorStop(
           0,
-          this.hexToRgba('#FFFFFF', 0.22)
-        );
-
-        gradient.addColorStop(
-          0.22,
           this.hexToRgba(color, 0.28)
         );
 
         gradient.addColorStop(
-          0.58,
-          this.hexToRgba(color, 0.18)
+          0.24,
+          this.hexToRgba(color, 0.25)
+        );
+
+        gradient.addColorStop(
+          0.6,
+          this.hexToRgba(color, 0.15)
         );
 
         gradient.addColorStop(
@@ -426,21 +372,21 @@ export class BackgroundBallsComponent
           this.hexToRgba(color, 0)
         );
 
-        ctx.globalAlpha = 0.95;
+        ctx.globalAlpha = 0.88;
       } else {
         gradient.addColorStop(
           0,
-          this.hexToRgba('#FFFFFF', 0.52)
+          this.hexToRgba(color, 0.80)
         );
 
         gradient.addColorStop(
           0.2,
-          this.hexToRgba(color, 0.42)
+          this.hexToRgba(color, 0.76)
         );
 
         gradient.addColorStop(
           0.56,
-          this.hexToRgba(color, 0.26)
+          this.hexToRgba(color, 0.51)
         );
 
         gradient.addColorStop(
@@ -452,17 +398,8 @@ export class BackgroundBallsComponent
       }
 
       ctx.fillStyle = gradient;
-
       ctx.beginPath();
-
-      ctx.arc(
-        ball.x,
-        ball.y,
-        ball.r,
-        0,
-        Math.PI * 2
-      );
-
+      ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI * 2);
       ctx.fill();
     }
 
@@ -482,38 +419,24 @@ export class BackgroundBallsComponent
         revealPosition + transitionSize
       );
 
-      mask.addColorStop(
-        0,
-        'rgba(0, 0, 0, 0)'
-      );
-
-      mask.addColorStop(
-        1,
-        'rgba(0, 0, 0, 1)'
-      );
+      mask.addColorStop(0, 'rgba(0, 0, 0, 0)');
+      mask.addColorStop(1, 'rgba(0, 0, 0, 1)');
 
       ctx.fillStyle = mask;
       ctx.fillRect(0, 0, W, H);
-
       ctx.restore();
     }
   }
 
   private readonly loop = (time: number): void => {
     const dt = this.lastFrame
-      ? Math.min(
-          2,
-          (time - this.lastFrame) / 16.6667
-        )
+      ? Math.min(2, (time - this.lastFrame) / 16.6667)
       : 1;
 
     this.lastFrame = time;
 
     if (!document.hidden) {
-      this.balls.forEach(ball => {
-        this.moveBall(ball, dt);
-      });
-
+      this.balls.forEach(ball => this.moveBall(ball, dt));
       this.draw();
     }
 
