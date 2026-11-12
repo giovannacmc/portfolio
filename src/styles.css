@@ -3681,3 +3681,47 @@ html[lang='en'] .efset-pt {
     align-self: flex-start;
   }
 }
+
+:root:not([lang='en']) .efset-en,
+:root[lang='en'] .efset-pt {
+  display: none;
+}
+
+.efset-certificate .learning-progress span {
+  width: 77%;
+  background: linear-gradient(90deg, var(--accent), #b59eeb);
+}
+
+.efset-description {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.efset-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: 8px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: opacity 0.2s ease;
+}
+
+.efset-link:hover {
+  opacity: 0.75;
+}
+
+@media (max-width: 760px) {
+  .efset-certificate .learning-side {
+    max-width: 100%;
+  }
+
+  .efset-link {
+    align-self: flex-start;
+  }
+}
